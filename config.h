@@ -11,14 +11,14 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=11", "fontawesome:size=11", "JoyPixels:pixelsize=11:antialias=true:autohint=true"  };
+static const char *fonts[]          = { "monospace:size=11", "fontawesome:size=12", "JoyPixels:pixelsize=11:antialias=true:autohint=true"  };
 static char dmenufont[]             = "monospace:size=11";
-static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
-static char normfgcolor[]           = "#ffffff";
-static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#ffc526";
-static char selbgcolor[]            = "#ffb108";
+static char normbgcolor[]           = "#000000";
+static char normbordercolor[]       = "#000000";
+static char normfgcolor[]           = "#BD93F9";
+static char selfgcolor[]            = "#000000";
+static char selbordercolor[]        = "#BD93F9";
+static char selbgcolor[]            = "#BD93F9";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -38,7 +38,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "","","","","","","龜","" };
+static const char *tags[] = { "I","II","III","IV","V","VI","VII","VIII" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -49,7 +49,7 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
 	{ "terminator", NULL,       NULL,       	    0,            0,           1,         0,        -1 },
 	{ "firefox",  NULL,       NULL,       	    1 << 6,       0,           0,         0,        -1 },
-	{ "SPOTIFY",  NULL,       NULL,       	    1 << 4,       0,           0,         0,        -1 },
+	{ "spotify",  NULL,       NULL,       	    1 << 4,       0,           0,         0,        -1 },
 	{ "PCMANFM",  NULL,	  NULL,		    1 << 2,	  0,           0,	  0,        -1 },
 	{ "mpv",      NULL,	  NULL,		    1 << 3,	  0,	       0,	  0,	    -1 },
 	{ NULL,       NULL,       "Event Tester",   0,            0,           0,         1,        -1 },
@@ -160,7 +160,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_a,		togglegaps,	{0} },
 	{ MODKEY|ShiftMask,		XK_a,		defaultgaps,	{0} },
 	{ MODKEY,			XK_s,		togglesticky,	{0} },
-	{ MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("terminator -e gtop") },
+	{ MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("terminator -e gotop") },
 	{ MODKEY,			XK_d,		spawn,          {.v = dmenucmd } },
 	/* { MODKEY,			XK_d,		spawn,		SHCMD("") } }, */
 	{ MODKEY,			XK_f,		togglefullscr,	{0} },
@@ -208,9 +208,9 @@ static Key keys[] = {
 
 	{ MODKEY,			XK_F1,		spawn,		SHCMD("pcmanfm") },
 	{ MODKEY,			XK_F2,		spawn,		SHCMD("spotify") },
+	{ MODKEY,			XK_F5,		xrdb,		{.v = NULL } },
 	/*{ MODKEY,			XK_F3,		spawn,		SHCMD("displayselect") },
 	{ MODKEY,			XK_F4,		spawn,		SHCMD("terminator -e pulsemixer; kill -44 $(pidof dwmblocks)") },
-	{ MODKEY,			XK_F5,		xrdb,		{.v = NULL } },
 	{ MODKEY,			XK_F6,		spawn,		SHCMD("torwrap") },
 	{ MODKEY,			XK_F7,		spawn,		SHCMD("td-toggle") },
 	{ MODKEY,			XK_F8,		spawn,		SHCMD("mailsync") },
