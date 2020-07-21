@@ -16,14 +16,17 @@ static char dmenufont[]             = "monospace:size=11";
 static char normbgcolor[]           = "#000000";
 static char normbordercolor[]       = "#000000";
 static char normfgcolor[]           = "#BD93F9";
+static const char urgbordercolor[]  = "#ff0000";
 static char selfgcolor[]            = "#000000";
 static char selbordercolor[]        = "#BD93F9";
 static char selbgcolor[]            = "#BD93F9";
-static char *colors[][3] = {
+
+#include "/home/jammy/.cache/wal/colors-wal-dwm.h"
+/*static char *colors[][3] = {*/
        /*               fg           bg           border   */
-       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
-};
+/*       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },*/
+       /*[SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },*/
+/*};*/
 
 typedef struct {
 	const char *name;
@@ -221,6 +224,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_space,	zoom,		{0} },
 	{ MODKEY|ShiftMask,		XK_space,	togglefloating,	{0} },
 	{ MODKEY|ShiftMask,             XK_c,           quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_r,           quit,           {1} },
 
 	{ 0,				XK_Print,	spawn,		SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
 	{ ShiftMask,			XK_Print,	spawn,		SHCMD("maimpick") },
